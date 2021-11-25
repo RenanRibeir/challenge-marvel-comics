@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import api from "../../services/api";
 import { Character } from "../../types";
 import Item from "../Item/Item";
+import { StyledList } from "./style"
 
 const List = () =>{
 
@@ -12,19 +13,20 @@ const List = () =>{
       .get(`/characters`)
       .then(response => {
         setCharacters(response.data.data.results);
+        console.log(response.data.data);
       })
   
     },[]);
     
     return(
-        <ul>
+        <StyledList>
             {characters.map(
                 character => {
                 return(
-                <Item id={character.id} name={character.name} thumbnail={character.thumbnail}/>
+                <Item id={character.id} title={character.title} name={character.name} thumbnail={character.thumbnail}/>
                 )}
             )}
-        </ul>
+        </StyledList>
     );
 }
 

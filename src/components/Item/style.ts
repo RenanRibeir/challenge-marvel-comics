@@ -13,7 +13,7 @@ export const Card = styled.div`
 
 export const Img = styled.img`
     width: 50%;
-    height: 50px;
+    height: 60px;
     object-fit: cover;
 `
 export const Name = styled.span`
