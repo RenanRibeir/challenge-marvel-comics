@@ -6,7 +6,6 @@ export const Tittle = styled.div`
     align-items: center;
 
 `
-
 export const Img = styled.img`
     height: 65px;
 `

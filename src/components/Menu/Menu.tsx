@@ -1,12 +1,17 @@
-import { Limit, Title } from "./style";
+import { Button, Limit, Title } from "./style";
 
-const Menu =() => {
+interface props{
+    updateState: (arg: string) => void;
+}
+
+const Menu = ({updateState}:props) => {
+
     return (
         <Title>
             <Limit>
-            <span>Quadrinhos</span>
-            <span>Personagens</span>
-            <span>Eventos</span>
+                <Button onClick={() => updateState("comics")}>Quadrinhos</Button>
+                <Button onClick={() => updateState("characters")}>Personagens</Button>
+                <Button onClick={() => updateState("events")}>Eventos</Button>
             </Limit>
         </Title>
     );

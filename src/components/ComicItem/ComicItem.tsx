@@ -1,8 +1,9 @@
 import { Generic } from '../../types';
 import { Card, Img , Name} from './style';
 
-const Item = ({id,name,thumbnail}:Generic) => {
+const ComicItem = ({id,name,thumbnail}:Generic) => {
     return (
+        
     <Card>
         <Img src={`${thumbnail.path}.${thumbnail.extension}`}/>
         <Name>{name}</Name>
@@ -10,4 +11,4 @@ const Item = ({id,name,thumbnail}:Generic) => {
     );
 }
 
-export default Item;
+export default ComicItem;

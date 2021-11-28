@@ -1,8 +1,9 @@
-export interface Character{
+export interface Generic{
 	id: string;
-	name: string;
 	thumbnail:{
 	  path: string;
 	  extension: string;
 	}
+	name?: string;
+	title?: string;
 }
