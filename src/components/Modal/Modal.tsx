@@ -1,5 +1,5 @@
 import { Generic } from "../../types";
-import { StyledModal,Container,Button,Content, Img } from "./style";
+import { StyledModal,Container,Button,Content,Title,Img } from "./style";
 
 interface props{
     visible: boolean;
@@ -17,10 +17,10 @@ const Modal = ({visible,data}: props) =>{
         <StyledModal>
             <Img src={`${data.thumbnail.path}.${data.thumbnail.extension}`}/>
             <Container>
-                <Button>Enviar para</Button>
-                <span>{data.title}</span>
-                <span>{data.title}</span>
-                <span>{data.title}</span>
+                <Title>{data.title}</Title>
+                <br/><br/>
+                <Content>{data.description}</Content>
+                <Button>Enviar para</Button>    
             </Container>
         </StyledModal>) 
     } 

@@ -1,12 +1,20 @@
 import { Generic } from '../../types';
 import { Card, Img , Name} from './style';
 
-const Item = ({id,name,thumbnail}:Generic) => {
+interface props{
+    updateState: (arg: Generic) => void;
+    data: Generic;
+}
+
+const Item = ({updateState,data}:props) => {
+
     return (
-    <Card>
-        <Img src={`${thumbnail.path}.${thumbnail.extension}`}/>
-        <Name>{name}</Name>
+        <button onClick={() => updateState(data)}>
+    <Card >
+        <Img src={`${data.thumbnail.path}.${data.thumbnail.extension}`}/>
+        <Name>{data.name}</Name>
     </Card>
+    </button>
     );
 }
 

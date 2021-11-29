@@ -6,4 +6,7 @@ export interface Generic{
 	}
 	name?: string;
 	title?: string;
+	description?: string;
+	authors?: string[];
+	
 }

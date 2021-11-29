@@ -24,11 +24,16 @@ export const Button = styled.button`
     align-items: center;
 `
 export const Content = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80px;
-    flex-direction: row;
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   line-height: 16px;     /* fallback */
+   max-height: 70px;      /* fallback */
+   -webkit-line-clamp: 5; /* number of lines to show */
+   -webkit-box-orient: vertical;
+`
+export const Title = styled.div`
+    font-weight: bold;
 `
 export const Img = styled.img`
     height: 60%;
