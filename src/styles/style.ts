@@ -5,3 +5,11 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
 `
+
+export const Button = styled.button`
+    background-color: white;
+    font-weight: bold;
+    border: black solid 2px;
+    width: 100px;
+    height: 30px;
+`

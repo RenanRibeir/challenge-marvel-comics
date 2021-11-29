@@ -17,4 +17,6 @@ export const Button = styled.button`
     background-color: white;
     border: 0px;
     border-bottom: black 1px;
+    font-size: 18px;
+    font-weight: bold;
 `

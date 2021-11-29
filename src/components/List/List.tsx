@@ -19,7 +19,7 @@ function List({updateState,response}:props){
           {response.map(
               response => {
               return(
-              <Item updateState={dataItem} data={{id: response.id,name: response.name,thumbnail:response.thumbnail}}/>
+              <Item updateState={dataItem} data={{id: response.id,name: response.name,thumbnail:response.thumbnail,description: response.description}}/>
               )}
           )}
       </StyledList>)

@@ -1,5 +1,5 @@
 import { Generic } from '../../types';
-import { Card, Img , Name} from './style';
+import { Card, Column, Desc, Img , Name} from './style';
 
 interface props{
     updateState: (arg: Generic) => void;
@@ -9,12 +9,14 @@ interface props{
 const Item = ({updateState,data}:props) => {
 
     return (
-        <button onClick={() => updateState(data)}>
-    <Card >
+    <Card onClick={() => updateState(data)}>
         <Img src={`${data.thumbnail.path}.${data.thumbnail.extension}`}/>
-        <Name>{data.name}</Name>
+        <Column>
+            <Name>{data.name}</Name>
+            <br/><br/>
+            <Desc>{data.description}</Desc>
+        </Column>
     </Card>
-    </button>
     );
 }
 

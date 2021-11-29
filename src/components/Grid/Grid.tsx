@@ -5,10 +5,11 @@ import { Limit, StyledGrid } from "./style"
 interface props{
   response: Generic[];
   updateState: (arg: Generic) => void;
+  addCart: (arg: Generic) => void;
 }
 
 
-export function Grid({updateState,response}:props){
+export function Grid({updateState,addCart,response}:props){
   const dataItem = (item: Generic):void => {
     updateState(item);
 }
@@ -19,7 +20,7 @@ export function Grid({updateState,response}:props){
       {response.map(
           response => {
           return(
-          <ComicItem updateState={dataItem} data={{id: response.id,title: response.title,thumbnail:response.thumbnail,description: response.description}}/>
+          <ComicItem updateState={dataItem} addCart={addCart} data={{id: response.id,title: response.title,thumbnail:response.thumbnail,description: response.description}}/>
           )}
       )}
       </Limit>

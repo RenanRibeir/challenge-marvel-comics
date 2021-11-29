@@ -1,26 +1,25 @@
 import { Generic } from "../../types";
-import { StyledModal,Container,Button,Content,Title,Img } from "./style";
+import { StyledModal,Container,Content,Title,Img } from "./style";
 
 interface props{
+    id?: string;
     visible: boolean;
     data: Generic;
+    updateState: () => void;
 }
 
-const Modal = ({visible,data}: props) =>{
+const Modal = ({id = 'modal',updateState,visible,data}: props) =>{
 
     let modal;
 
-    console.log(data);
-
     if(visible){
         modal = (
-        <StyledModal>
+        <StyledModal onClick={updateState}>
             <Img src={`${data.thumbnail.path}.${data.thumbnail.extension}`}/>
             <Container>
                 <Title>{data.title}</Title>
                 <br/><br/>
-                <Content>{data.description}</Content>
-                <Button>Enviar para</Button>    
+                <Content>Description:{data.description?data.description:" No description"}</Content>
             </Container>
         </StyledModal>) 
     } 

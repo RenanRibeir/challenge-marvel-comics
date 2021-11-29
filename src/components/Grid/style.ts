@@ -10,7 +10,7 @@ export const Limit = styled.div`
     display: flex;
     justify-content: space-around;
     min-width: 300px;
-    width: 800px;
+    width: 900px;
     flex-direction: row;
     flex-wrap: wrap;
 `

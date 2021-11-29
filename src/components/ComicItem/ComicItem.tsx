@@ -1,17 +1,19 @@
 import { Generic } from '../../types';
-import { Card, Img , Name} from './style';
+import { Button, Card, Img , Name} from './style';
 
 interface props{
     updateState: (arg: Generic) => void;
+    addCart: (arg: Generic) => void;
     data: Generic;
 }
 
-const ComicItem = ({updateState,data}:props) => {
+const ComicItem = ({updateState,addCart,data}:props) => {
     return (
         
-    <Card onClick={() => updateState(data)}>
-        <Img src={`${data.thumbnail.path}.${data.thumbnail.extension}`}/>
-        <Name>{data.title}</Name>
+    <Card >
+        <Img onClick={() => updateState(data)} src={`${data.thumbnail.path}.${data.thumbnail.extension}`}/>
+        <Name onClick={() => updateState(data)}>{data.title}</Name>
+        <Button onClick={() => addCart(data)}>Adicionar ao carrinho</Button>
     </Card>
     );
 }

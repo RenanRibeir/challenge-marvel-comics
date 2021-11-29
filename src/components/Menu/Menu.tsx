@@ -11,7 +11,6 @@ const Menu = ({updateState}:props) => {
             <Limit>
                 <Button onClick={() => updateState("comics")}>Quadrinhos</Button>
                 <Button onClick={() => updateState("characters")}>Personagens</Button>
-                <Button onClick={() => updateState("events")}>Eventos</Button>
             </Limit>
         </Title>
     );
