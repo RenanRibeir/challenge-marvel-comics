@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Cart from './components/Cart/Cart';
 import Grid from './components/Grid/Grid';
-import List from './components/List/List';
+//import List from './components/List/List';
 import Loading from './components/Loading/Loading';
 import Logo from './components/Logo/Logo';
 import Menu from './components/Menu/Menu';
@@ -13,7 +13,7 @@ import { Generic } from './types';
 
 const App:React.FC = () => { 
 
-  const [menu,setMenu] = useState<string>("comics");
+  //const [menu,setMenu] = useState<string>("comics");
   const [item,setItem] = useState<Generic>({id: ' ',title:' ',thumbnail:{path:' ',extension:' '} });
   const [response,setResponse] = useState<Generic[]>([]);
   const [loading,setLoading] = useState<boolean>(true);
@@ -69,33 +69,28 @@ const App:React.FC = () => {
   function Search (e:string){
     let temp = '?';
     if(text !== ' '){
-    if(menu === "characters" ){
-      temp =`?nameStartsWith=${e}&`
-    }else{
+    // if(menu === "characters" ){
+    //   temp =`?nameStartsWith=${e}&`
+    // }else{
       temp =`?titleStartsWith=${e}&`;
-    }}
+   // }
+    }
 
     setText(e);
     setSearch(temp);
   }
 
-  async function get() {
-
-    await api
-    .get(`/${menu}${search}offset=${offset}&limit=${limit}`)
-    .then(e => {
-      setTotal(e.data.data.total);
-      setResponse(e.data.data.results);
-    })
-  }
-
     useEffect(() => {
       setLoading(true)
-      updateMenu("comics")
-      get();
+      //updateMenu("comics")
+      api
+      .get(`/${"comics"}${search}offset=${offset}&limit=${limit}`)
+      .then(e => {
+        setTotal(e.data.data.total);
+        setResponse(e.data.data.results);
+      })
       setLoading(false);
-      Search(text);
-    },[menu,loading,search,offset,cart]);
+    },[loading,search,offset,cart]);
 
 
   return (
@@ -117,10 +112,10 @@ const App:React.FC = () => {
             </section>
         </Center>
         <Modal updateState={closeModal} visible={modal} data={item}/>
-        {menu === "characters"?
+        {/*menu === "characters"
         <List updateState={updateItem} response={response}/>
-        :
-        <Grid updateState={updateItem} addCart={addCart} response={response}/>}
+        :*/}
+        <Grid updateState={updateItem} addCart={addCart} response={response}/>
         <Loading show={loading}/>
         <Center>
           <Button onClick={decrementOffset}>Anterior</Button>
@@ -128,7 +123,7 @@ const App:React.FC = () => {
         </Center>
       </Container>
     </GlobalStyle>
-  </>
+    </>
     );
 };
 
