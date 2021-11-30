@@ -19,7 +19,10 @@ export const Container = styled.div`
     flex-direction: column;
     color: #000;
     width: 300px;
-    overflow: hidden;
+    overflow: scroll;
+    #{Container}::-webkit-scrollbar { 
+    display: none; 
+}
 `
 export const Button = styled.button`
     background-color: white;
