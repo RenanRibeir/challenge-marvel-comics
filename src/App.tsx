@@ -8,7 +8,7 @@ import Menu from './components/Menu/Menu';
 import Modal from './components/Modal/Modal';
 import api from './services/api';
 import {GlobalStyle} from './styles/global';
-import { Container,Button } from './styles/style';
+import { Container,Button,Input, Center } from './styles/style';
 import { Generic } from './types';
 
 const App:React.FC = () => { 
@@ -104,27 +104,27 @@ const App:React.FC = () => {
         <Logo/>
         <Cart updateState={closeModal} getItem={removeCart} visible={modalCart} data={cart}/> 
         <Menu showCart={showCart} updateState={updateMenu}/>
-        <div>
+        <Center>
             <section>
                 <form>
-                    <input type="text"
-                    placeholder="Digite um personagem"
+                    <Input type="text"
+                    placeholder="Digite o nome de um personagem"
                     autoFocus
                     onChange={(e) => Search(e.target.value)}
                     value={text}/>
                 </form>
             </section>
-        </div>
+        </Center>
         <Modal updateState={closeModal} visible={modal} data={item}/>
         {menu === "characters"?
         <List updateState={updateItem} response={response}/>
         :
         <Grid updateState={updateItem} addCart={addCart} response={response}/>}
         <Loading show={loading}/>
-        <div style={{alignItems:"center"}}>
+        <Center>
           <Button onClick={decrementOffset}>Anterior</Button>
           <Button onClick={incrementOffset}>Proximo</Button>
-        </div>
+        </Center>
       </Container>
     </GlobalStyle>
   </>
