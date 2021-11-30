@@ -17,16 +17,13 @@ const Cart = ({updateState,getItem,visible,data}:props) =>{
         <>
             <StyledModal>
             <Container>
-                <ButtonC onClick={updateState}>X</ButtonC>
-                <Title>Seu Carrinho</Title>
+                    <ButtonC onClick={updateState}>X</ButtonC>
+                    <Title>Seu Carrinho</Title>
                 {data.map(e => 
                 {return(
-                    <div style={{flexDirection: 'row'}}>
-                        <Img src={e.thumbnail.path+"."+e.thumbnail.extension}/>
-                        <div style={{flexDirection: 'column',width: '40%'}}>
-                        <Name>{e.title}</Name>
-                        <Button onClick={() => getItem(e)}>remove</Button>
-                        </div>
+                        <div style={{flexDirection: 'row',alignItems: 'center'}}>
+                            <Name>{e.title}</Name>
+                            <Button onClick={() => getItem(e)}>Remover</Button>
                         </div>
                 )})}
                 </Container>

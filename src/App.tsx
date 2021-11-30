@@ -44,7 +44,6 @@ const App:React.FC = () => {
 
   const addCart = (comic:Generic):void =>{
       setCart(cart => [...cart,comic]);
-      setModalCart(true);
   }
 
   const removeCart = (comic:Generic):void =>{
@@ -61,6 +60,11 @@ const App:React.FC = () => {
   const decrementOffset = ():void =>{
     if(0<offset-limit)setOffset(offset-limit);
   }
+
+  const showCart = ():void =>{
+      setModalCart(true);
+  }
+
 
   function Search (e:string){
     let temp = '?';
@@ -99,7 +103,7 @@ const App:React.FC = () => {
       <Container>
         <Logo/>
         <Cart updateState={closeModal} getItem={removeCart} visible={modalCart} data={cart}/> 
-        <Menu updateState={updateMenu}/>
+        <Menu showCart={showCart} updateState={updateMenu}/>
         <div>
             <section>
                 <form>

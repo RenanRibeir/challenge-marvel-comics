@@ -17,22 +17,22 @@ export const Container = styled.div`
     background-color: #fff;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center ;
     color: #000;
-    overflow: scroll;
+    width: 300px;
+    overflow: hidden;
 `
 export const Button = styled.button`
     background-color: white;
     border: 2px solid #000;
     width: 100px;
     height: 30px;
+    margin: 10px;
 `
 
 export const ButtonSend = styled.button`
     background-color: white;
     border: 2px solid #000;
-    width: 40%;
+    width: 300px;
     height: 30px;
 `
 
@@ -41,13 +41,16 @@ export const ButtonC = styled.button`
     border: 0px;
     width: 30px;
     height: 30px;
+    font-size: 18px;
 `
 export const Title = styled.div`
     font-weight: bold;
-    margin: 14px;
+    font-size: 18px;
+    text-align: center;
 `
 export const Name = styled.div`
     font-weight: bold;
+    text-align: start;
     margin: 10px;
 `
 
