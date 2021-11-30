@@ -2,7 +2,11 @@
 
 Redando no endereço https://challenge-marvel-comics.vercel.app/
 
-## Available Scripts
+## Como rodar
+
+Apos clonar o repositorio rode o comando
+
+### `yarn install`
 
 Na pasta do projeto execute o comando
 
