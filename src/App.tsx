@@ -27,7 +27,7 @@ const App:React.FC = () => {
   const limit = 16;
 
   const updateMenu = (name: string):void => {
-    setMenu(name);
+    //setMenu(name);
     Search(text);
     setOffset(0);
   }
@@ -68,7 +68,7 @@ const App:React.FC = () => {
 
   function Search (e:string){
     let temp = '?';
-    if(text !== ''){
+    if(text !== ' '){
     if(menu === "characters" ){
       temp =`?nameStartsWith=${e}&`
     }else{
@@ -91,6 +91,7 @@ const App:React.FC = () => {
 
     useEffect(() => {
       setLoading(true)
+      updateMenu("comics")
       get();
       setLoading(false);
       Search(text);

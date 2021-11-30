@@ -58,5 +58,5 @@ export const Name = styled.div`
 `
 
 export const Img = styled.img`
-    width: 40px;
+    width: 80px;
 `

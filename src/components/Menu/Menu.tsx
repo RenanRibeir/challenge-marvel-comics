@@ -10,8 +10,8 @@ const Menu = ({updateState,showCart}:props) => {
     return (
         <Title>
             <Limit>
-                <Button onClick={() => updateState("comics")}>Quadrinhos</Button>
-                <Button onClick={() => updateState("characters")}>Personagens</Button>
+                {/*<Button onClick={() => updateState("comics")}>Quadrinhos</Button>*;}
+                {/*<Button onClick={() => updateState("characters")}>Personagens</Button>*/}
                 <Button onClick={() => showCart()}>Ver meu carrinho</Button>
             </Limit>
         </Title>

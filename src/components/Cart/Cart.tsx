@@ -21,10 +21,13 @@ const Cart = ({updateState,getItem,visible,data}:props) =>{
                     <Title>Seu Carrinho</Title>
                 {data.map(e => 
                 {return(
-                        <div style={{flexDirection: 'row',alignItems: 'center'}}>
+                    <div style={{display: 'flex',flexDirection: 'row',alignItems: 'center'}}>
+                        <Img src={e.thumbnail.path+"."+e.thumbnail.extension}/>
+                        <div style={{display: 'flex',flexDirection: 'column'}}>
                             <Name>{e.title}</Name>
                             <Button onClick={() => getItem(e)}>Remover</Button>
                         </div>
+                    </div>
                 )})}
                 </Container>
             
