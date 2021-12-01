@@ -29,5 +29,4 @@ export const Input = styled.input`
     font-size: 16px;
     border: 2px solid black;
     text-align: center;
-    margin-right: 30px;
 `
