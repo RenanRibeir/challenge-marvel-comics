@@ -28,7 +28,6 @@ const App:React.FC = () => {
 
   const updateMenu = (name: string):void => {
     //setMenu(name);
-    Search(text);
     setOffset(0);
   }
 
@@ -79,21 +78,27 @@ const App:React.FC = () => {
   }
 
 
-  function Search (e:string){
+  function Search (){
     let temp = '?';
     setOffset(0);
 
-    if(text.length === 0){
+    if(text.length !== 0){
     // if(menu === "characters" ){
     //   temp =`?nameStartsWith=${e}&`
     // }else{
-      temp =`?titleStartsWith=${e}&`;
+      temp =`?titleStartsWith=${text}&`;
    // }
     }
 
-    setText(e);
     setSearch(temp);
 
+  }
+
+  useEffect(() => {
+    
+  },[cart]);
+
+  useEffect(() => {
     setLoading(true)
     api
     .get(`/${"comics"}${search}offset=${offset}&limit=${limit}`)
@@ -102,12 +107,7 @@ const App:React.FC = () => {
       setResponse(e.data.data.results);
       setLoading(false)
     })
-  }
-
-    useEffect(() => {
-     
-    },[search,offset,cart]);
-
+  },[search,offset]);
 
   return (
   <>
@@ -117,15 +117,14 @@ const App:React.FC = () => {
         <Cart updateState={closeModal} getItem={removeCart} visible={modalCart} data={cart}/> 
         <Menu qtd={cart.length} showCart={showCart} updateState={updateMenu}/>
         <Center>
-            <section>
-                <form>
                     <Input type="text"
-                    placeholder="Digite o nome de um personagem"
+                    placeholder="Digite o nome de uma HQ e pressione Enter"
                     autoFocus
-                    onChange={(e) => Search(e.target.value)}
-                    value={text}/>
-                </form>
-            </section>
+                    onChange={(e) => setText(e.target.value)}
+                    onKeyDown={function(e){if(e.key === 'Enter')Search()}}
+                    value={text}
+                    />
+                   <Button onClick={Search}>Pesquisar</Button>
         </Center>
         <Modal updateState={closeModal} visible={modal} data={item}/>
         <Loading show={loading}/>
