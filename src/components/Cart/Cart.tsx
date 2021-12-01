@@ -1,5 +1,4 @@
 
-import { useEffect } from "react";
 import { Generic } from "../../types";
 import { StyledModal,Container,Button,Title, ButtonC, Name, ButtonSend, Img } from "./style";
 

@@ -16,7 +16,7 @@ const App:React.FC = () => {
   //const [menu,setMenu] = useState<string>("comics");
   const [item,setItem] = useState<Generic>({id: ' ',title:' ',thumbnail:{path:' ',extension:' '},qtd:0});
   const [response,setResponse] = useState<Generic[]>([]);
-  const [loading,setLoading] = useState<boolean>(true);
+  const [loading,setLoading] = useState<boolean>(false);
   const [modal,setModal] = useState<boolean>(false);
   const [modalCart,setModalCart] = useState<boolean>(false);
   const [search,setSearch] = useState<string>('?');
@@ -64,10 +64,14 @@ const App:React.FC = () => {
   const incrementOffset = ():void =>{
     if(total>offset+limit)setOffset(offset+limit);
     console.log(offset);
+
+    window.scroll(0,-10000);
   }
   
   const decrementOffset = ():void =>{
     if(0<offset-limit)setOffset(offset-limit);
+
+    window.scroll(0,-10000);
   }
 
   const showCart = ():void =>{
@@ -97,9 +101,9 @@ const App:React.FC = () => {
       .then(e => {
         setTotal(e.data.data.total);
         setResponse(e.data.data.results);
+        setLoading(false)
       })
-      setLoading(false);
-    },[loading,search,offset,cart]);
+    },[search,offset,cart]);
 
 
   return (
@@ -121,11 +125,11 @@ const App:React.FC = () => {
             </section>
         </Center>
         <Modal updateState={closeModal} visible={modal} data={item}/>
+        <Loading show={loading}/>
         {/*menu === "characters"
         <List updateState={updateItem} response={response}/>
         :*/}
-        <Grid updateState={updateItem} addCart={addCart} response={response}/>
-        <Loading show={loading}/>
+        <Grid visible={loading} updateState={updateItem} addCart={addCart} response={response}/>
         <Center>
           <Button onClick={decrementOffset}>Anterior</Button>
           <Button onClick={incrementOffset}>Proximo</Button>
