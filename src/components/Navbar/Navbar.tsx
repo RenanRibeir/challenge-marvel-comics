@@ -9,10 +9,10 @@ interface props{
 
 const Navbar = ({showCart,qtd}:props) => {
     return (
-    <Tittle>
-        <Img src={image}></Img>
-        <Menu qtd={qtd} showCart={showCart}/>
-    </Tittle>
+        <Tittle>
+            <Img src={image}></Img>
+            <Menu qtd={qtd} showCart={showCart}/>
+        </Tittle>
     )
 }
 

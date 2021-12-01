@@ -9,7 +9,7 @@ import api from './services/api';
 import {GlobalStyle} from './styles/global';
 import { Container,Button,Input, Center } from './styles/style';
 import { Generic } from './types';
-import React, { Component }  from 'react';
+import React from 'react';
 
 const App:React.FC = () => { 
 
