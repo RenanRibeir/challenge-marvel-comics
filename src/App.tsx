@@ -3,7 +3,7 @@ import Cart from './components/Cart/Cart';
 import Grid from './components/Grid/Grid';
 //import List from './components/List/List';
 import Loading from './components/Loading/Loading';
-import Navbar from './components/Navbar/Navbar';
+import Navbar from './components/Navbar/Logo';
 import Modal from './components/Modal/Modal';
 import api from './services/api';
 import {GlobalStyle} from './styles/global';

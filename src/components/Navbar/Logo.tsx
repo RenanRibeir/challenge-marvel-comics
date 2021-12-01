@@ -7,7 +7,7 @@ interface props{
     qtd: number
 }
 
-const Navbar = ({showCart,qtd}:props) => {
+const Logo = ({showCart,qtd}:props) => {
     return (
         <Tittle>
             <Img src={image}></Img>
@@ -16,4 +16,4 @@ const Navbar = ({showCart,qtd}:props) => {
     )
 }
 
-export default Navbar;
+export default Logo;
