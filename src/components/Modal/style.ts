@@ -33,7 +33,7 @@ export const Content = styled.div`
    text-overflow: ellipsis;
    display: -webkit-box;
    line-height: 16px;     /* fallback */
-   max-height: 70px;      /* fallback */
+   max-height: 90px;      /* fallback */
    -webkit-line-clamp: 4; /* number of lines to show */
    -webkit-box-orient: vertical;
    margin: 10px;

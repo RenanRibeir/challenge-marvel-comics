@@ -14,7 +14,7 @@ import { Generic } from './types';
 const App:React.FC = () => { 
 
   //const [menu,setMenu] = useState<string>("comics");
-  const [item,setItem] = useState<Generic>({id: ' ',title:' ',thumbnail:{path:' ',extension:' '} });
+  const [item,setItem] = useState<Generic>({id: ' ',title:' ',thumbnail:{path:' ',extension:' '},qtd:0});
   const [response,setResponse] = useState<Generic[]>([]);
   const [loading,setLoading] = useState<boolean>(true);
   const [modal,setModal] = useState<boolean>(false);
@@ -43,13 +43,22 @@ const App:React.FC = () => {
   }
 
   const addCart = (comic:Generic):void =>{
-      setCart(cart => [...cart,comic]);
+      if(!cart.find((e) => e.id === comic.id)){
+        comic.qtd = 1;
+        setCart(cart => [...cart,comic]);
+      }else{
+        cart.forEach(function(e){if(e.id === comic.id)e.qtd++});
+      }    
+      window.scroll(0,-10000);
   }
 
   const removeCart = (comic:Generic):void =>{
-   
-    setCart( cart.filter((_, i) => i !== cart.indexOf(comic)));
-    console.log(cart);
+    if(cart[cart.indexOf(comic)].qtd === 1)
+      setCart(cart.filter((_, i) => i !== cart.indexOf(comic)));
+    else{
+      cart.forEach((e) => {if(e.id === comic.id) e.qtd--})
+      setCart(cart => [...cart]);
+    }
   }
 
   const incrementOffset = ():void =>{
@@ -68,6 +77,7 @@ const App:React.FC = () => {
 
   function Search (e:string){
     let temp = '?';
+    setOffset(0);
     if(text !== ' '){
     // if(menu === "characters" ){
     //   temp =`?nameStartsWith=${e}&`
@@ -82,7 +92,6 @@ const App:React.FC = () => {
 
     useEffect(() => {
       setLoading(true)
-      //updateMenu("comics")
       api
       .get(`/${"comics"}${search}offset=${offset}&limit=${limit}`)
       .then(e => {
@@ -99,7 +108,7 @@ const App:React.FC = () => {
       <Container>
         <Logo/>
         <Cart updateState={closeModal} getItem={removeCart} visible={modalCart} data={cart}/> 
-        <Menu showCart={showCart} updateState={updateMenu}/>
+        <Menu qtd={cart.length} showCart={showCart} updateState={updateMenu}/>
         <Center>
             <section>
                 <form>

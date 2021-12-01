@@ -8,5 +8,5 @@ export interface Generic{
 	title?: string;
 	description?: string;
 	authors?: string[];
-	
+	qtd: number;
 }

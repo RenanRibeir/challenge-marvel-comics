@@ -23,7 +23,7 @@ export const Center = styled.div`
 `
 
 export const Input = styled.input`
-    width: 900px;
+    width: 300px;
     min-width: 300px;
     height: 30px;
     font-size: 16px;

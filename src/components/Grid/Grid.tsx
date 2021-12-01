@@ -20,7 +20,7 @@ export function Grid({updateState,addCart,response}:props){
       {response.map(
           response => {
           return(
-          <ComicItem updateState={dataItem} addCart={addCart} data={{id: response.id,title: response.title,thumbnail:response.thumbnail,description: response.description}}/>
+          <ComicItem updateState={dataItem} addCart={addCart} data={{id: response.id,title: response.title,thumbnail:response.thumbnail,description: response.description,qtd: response.qtd}}/>
           )}
       )}
       </Limit>
