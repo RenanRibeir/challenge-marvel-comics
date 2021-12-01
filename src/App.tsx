@@ -3,7 +3,7 @@ import Cart from './components/Cart/Cart';
 import Grid from './components/Grid/Grid';
 //import List from './components/List/List';
 import Loading from './components/Loading/Loading';
-import Logo from './components/Logo/Logo';
+import Navbar from './components/Navbar/Navbar';
 import Menu from './components/Menu/Menu';
 import Modal from './components/Modal/Modal';
 import api from './services/api';
@@ -113,9 +113,8 @@ const App:React.FC = () => {
   <>
     <GlobalStyle>
       <Container>
-        <Logo/>
+        <Navbar qtd={cart.length} showCart={showCart}/>
         <Cart updateState={closeModal} getItem={removeCart} visible={modalCart} data={cart}/> 
-        <Menu qtd={cart.length} showCart={showCart} updateState={updateMenu}/>
         <Center>
                     <Input type="text"
                     placeholder="Digite o nome de uma HQ e pressione Enter"
