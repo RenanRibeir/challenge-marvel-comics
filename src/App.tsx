@@ -82,7 +82,8 @@ const App:React.FC = () => {
   function Search (e:string){
     let temp = '?';
     setOffset(0);
-    if(text !== ' '){
+
+    if(text.length === 0){
     // if(menu === "characters" ){
     //   temp =`?nameStartsWith=${e}&`
     // }else{
