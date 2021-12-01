@@ -93,17 +93,19 @@ const App:React.FC = () => {
 
     setText(e);
     setSearch(temp);
+
+    setLoading(true)
+    api
+    .get(`/${"comics"}${search}offset=${offset}&limit=${limit}`)
+    .then(e => {
+      setTotal(e.data.data.total);
+      setResponse(e.data.data.results);
+      setLoading(false)
+    })
   }
 
     useEffect(() => {
-      setLoading(true)
-      api
-      .get(`/${"comics"}${search}offset=${offset}&limit=${limit}`)
-      .then(e => {
-        setTotal(e.data.data.total);
-        setResponse(e.data.data.results);
-        setLoading(false)
-      })
+     
     },[search,offset,cart]);
 
 
