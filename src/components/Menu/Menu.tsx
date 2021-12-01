@@ -16,10 +16,7 @@ const Menu = ({showCart,qtd}:props) => {
                 {/*<Button onClick={() => updateState("comics")}>Quadrinhos</Button>*;}
                 {/*<Button onClick={() => updateState("characters")}>Personagens</Button>*/}
                 <Button onClick={() => showCart()}>
-                    {qtd === 0?
-                    <img src={image} style={{width: '36px',marginRight: '10px'}}/> 
-                    :
-                    <img src={imagen} style={{width: '36px',marginRight: '10px'}}/> }
+                    <img src={qtd === 0?image:imagen} style={{width: '36px',marginRight: '10px'}}/> 
                 </Button>
             </Limit>
         </Title>

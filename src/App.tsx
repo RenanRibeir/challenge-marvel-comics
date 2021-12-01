@@ -4,7 +4,6 @@ import Grid from './components/Grid/Grid';
 //import List from './components/List/List';
 import Loading from './components/Loading/Loading';
 import Navbar from './components/Navbar/Navbar';
-import Menu from './components/Menu/Menu';
 import Modal from './components/Modal/Modal';
 import api from './services/api';
 import {GlobalStyle} from './styles/global';
@@ -26,10 +25,10 @@ const App:React.FC = () => {
   const [cart,setCart] = useState<Generic[]>([]);
   const limit = 16;
 
-  const updateMenu = (name: string):void => {
-    //setMenu(name);
-    setOffset(0);
-  }
+  // const updateMenu = (name: string):void => {
+  //   //setMenu(name);
+  //   setOffset(0);
+  // }
 
   const updateItem = (item:Generic):void => {
     setItem(item);
