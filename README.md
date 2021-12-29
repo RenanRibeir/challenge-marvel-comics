@@ -1,10 +1,10 @@
 # Desafio Front-end 
 
-Redando no endereço https://challenge-marvel-comics.vercel.app/
+Rodando no endereço https://challenge-marvel-comics.vercel.app/
 
 ## Como rodar
 
-Apos clonar o repositorio rode o comando
+Após clonar o repositorio rode o comando
 
 ### `yarn install`
 
